@@ -12,7 +12,7 @@ export function Navbar() {
             <NavLink to="/videos">Videos</NavLink>
           </li>
           <li>
-            <a>Playlists</a>
+            <NavLink to="/playlists">Playlist</NavLink>
           </li>
         </ul>
         <form>
