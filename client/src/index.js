@@ -4,11 +4,14 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter as Router } from "react-router-dom";
+import { PlaylistProvider } from "./contexts/playlist-context";
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-      <App />
+      <PlaylistProvider>
+        <App />
+      </PlaylistProvider>
     </Router>
   </React.StrictMode>,
   document.getElementById("root")

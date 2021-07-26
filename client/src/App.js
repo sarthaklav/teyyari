@@ -2,14 +2,14 @@ import "./App.css";
 import { Navbar } from "./components/Navbar";
 import { Videos } from "./components/Videos";
 import { Home } from "./components/Home";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import { PlayVideo } from "./components/PlayVideo";
 import { NoMatch } from "./components/NoMatch";
+import { Playlist } from "./components/Playlist";
 function App() {
   return (
     <div className="App">
       <Navbar />
-
       <Switch>
         <Route exact path="/">
           <Home />
@@ -20,7 +20,9 @@ function App() {
         <Route path="/videos">
           <Videos />
         </Route>
-
+        <Route path="/playlists/watch-later">
+          <Playlist />
+        </Route>
         <Route path="*">
           <NoMatch />
         </Route>

@@ -1,6 +1,8 @@
 import videos from "../data";
 import { Link } from "react-router-dom";
+import { usePlaylist } from "../contexts/playlist-context";
 export function Videos() {
+  const { playlistDispatch } = usePlaylist();
   return (
     <div style={{ display: "flex", flexWrap: "wrap", padding: "auto" }}>
       {videos.map((item) => {
@@ -13,12 +15,21 @@ export function Videos() {
             }}
           >
             <Link to={`/videos/${item.id}`}>
-              <p>the id of this is {item.id}</p>
               <img src={item.thumbnail} alt="" />
               <div>
                 <h4> {item.name}</h4>
               </div>
             </Link>
+            <button
+              onClick={() =>
+                playlistDispatch({
+                  type: "ADD_TO_WATCHLATER",
+                  payload: item,
+                })
+              }
+            >
+              Add to watchlater
+            </button>
           </div>
         );
       })}
