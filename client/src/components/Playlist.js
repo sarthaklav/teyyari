@@ -12,6 +12,7 @@ export function Playlist() {
               margin: "1rem",
               width: "280px",
             }}
+            key={item.id}
           >
             <Link to={`/videos/${item.id}`}>
               <img src={item.thumbnail} alt="" />

@@ -1,10 +1,12 @@
 import videos from "../data";
 import { Link } from "react-router-dom";
 import { usePlaylist } from "../contexts/playlist-context";
+import { Aside } from "./Aside";
 export function Videos() {
   const { playlistDispatch } = usePlaylist();
   return (
     <div style={{ display: "flex", flexWrap: "wrap", padding: "auto" }}>
+      <Aside />
       {videos.map((item) => {
         return (
           <div
@@ -13,6 +15,7 @@ export function Videos() {
               margin: "1rem",
               width: "280px",
             }}
+            key={item.id}
           >
             <Link to={`/videos/${item.id}`}>
               <img src={item.thumbnail} alt="" />
