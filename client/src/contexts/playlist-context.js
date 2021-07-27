@@ -12,10 +12,13 @@ const watchLater = [
 ];
 function reducerFunc(state, action) {
   switch (action.type) {
-    case "ADD_TO_WATCHLATER":
-      console.log(`the state is ${state}`);
+    case "ADD_TO_PLAYLIST":
+      console.log(`the state is in line 16  ${state}`);
       console.log(state);
-      return { ...state, watchLater: [...state.watchLater, action.payload] };
+      return {
+        ...state,
+        [action.playlistName]: [...state[action.playlistName], action.payload],
+      };
     case "CREATE_PLAYLIST":
       return { ...state, [action.payload]: [] };
 
@@ -27,17 +30,19 @@ function reducerFunc(state, action) {
 export function PlaylistProvider({ children }) {
   const [playlistState, playlistDispatch] = useReducer(reducerFunc, {
     watchLater,
+    // currentPlaylist: watchLater,
   });
   console.log(`from line 28 playlist-context.js`);
   console.log(playlistState);
   console.log(typeof playlistState);
-
+  const playlists = Object.keys(playlistState);
   return (
     <PlaylistContext.Provider
       value={{
         playlist: "from playlist context",
         playlistState,
         playlistDispatch,
+        playlists,
       }}
     >
       {children}

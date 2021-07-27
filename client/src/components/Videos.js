@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { usePlaylist } from "../contexts/playlist-context";
 import { Aside } from "./Aside";
 export function Videos() {
-  const { playlistDispatch } = usePlaylist();
+  const { playlists, playlistDispatch } = usePlaylist();
   return (
     <div style={{ display: "flex", flexWrap: "wrap", padding: "auto" }}>
       <Aside />
@@ -23,11 +23,26 @@ export function Videos() {
                 <h4> {item.name}</h4>
               </div>
             </Link>
+            {playlists.map((playlistName) => (
+              <button
+                onClick={() =>
+                  playlistDispatch({
+                    type: "ADD_TO_PLAYLIST",
+                    payload: item,
+                    playlistName: playlistName,
+                  })
+                }
+                key={playlists.indexOf(item)}
+              >
+                testing add {playlistName}
+              </button>
+            ))}
             <button
               onClick={() =>
                 playlistDispatch({
-                  type: "ADD_TO_WATCHLATER",
+                  type: "ADD_TO_PLAYLIST",
                   payload: item,
+                  playlistName: "",
                 })
               }
             >
