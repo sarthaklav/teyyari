@@ -1,10 +1,11 @@
 import { usePlaylist } from "../contexts/playlist-context";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 export function Playlist() {
   const { playlistState } = usePlaylist();
+  const { playlistName } = useParams();
   return (
     <div style={{ display: "flex" }}>
-      {playlistState.watchLater.map((item) => {
+      {playlistState[playlistName].map((item) => {
         return (
           <div
             style={{

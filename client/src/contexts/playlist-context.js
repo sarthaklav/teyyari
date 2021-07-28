@@ -13,8 +13,6 @@ const watchLater = [
 function reducerFunc(state, action) {
   switch (action.type) {
     case "ADD_TO_PLAYLIST":
-      console.log(`the state is in line 16  ${state}`);
-      console.log(state);
       return {
         ...state,
         [action.playlistName]: [...state[action.playlistName], action.payload],
@@ -30,7 +28,6 @@ function reducerFunc(state, action) {
 export function PlaylistProvider({ children }) {
   const [playlistState, playlistDispatch] = useReducer(reducerFunc, {
     watchLater,
-    // currentPlaylist: watchLater,
   });
   console.log(`from line 28 playlist-context.js`);
   console.log(playlistState);

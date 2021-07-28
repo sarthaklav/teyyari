@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 import { usePlaylist } from "../contexts/playlist-context";
 
 export function Aside() {
@@ -10,7 +11,17 @@ export function Aside() {
   return (
     <aside style={{}}>
       {playlists.map((item) => (
-        <button key={playlists.indexOf(item)}>{item}</button>
+        <NavLink
+          onClick={() =>
+            playlistDispatch({ type: "TOGGLE_PLAYLIST", action: item })
+          }
+          to={`/playlists/${item}`}
+          style={{ display: "block" }}
+          key={playlists.indexOf(item)}
+        >
+          {" "}
+          {item}
+        </NavLink>
       ))}
       {!createPlaylistForm && (
         <button onClick={() => setCreatePlaylistForm((val) => !val)}>

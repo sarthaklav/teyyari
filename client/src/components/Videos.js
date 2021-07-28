@@ -37,7 +37,7 @@ export function Videos() {
                 testing add {playlistName}
               </button>
             ))}
-            <button
+            {/* <button
               onClick={() =>
                 playlistDispatch({
                   type: "ADD_TO_PLAYLIST",
@@ -47,7 +47,7 @@ export function Videos() {
               }
             >
               Add to watchlater
-            </button>
+            </button> */}
           </div>
         );
       })}

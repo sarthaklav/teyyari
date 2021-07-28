@@ -20,7 +20,7 @@ function App() {
         <Route path="/videos">
           <Videos />
         </Route>
-        <Route path="/playlists/watch-later">
+        <Route path="/playlists/:playlistName">
           <Playlist />
         </Route>
         <Route path="*">
