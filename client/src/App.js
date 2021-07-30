@@ -6,6 +6,8 @@ import { Switch, Route } from "react-router-dom";
 import { PlayVideo } from "./components/PlayVideo";
 import { NoMatch } from "./components/NoMatch";
 import { Playlist } from "./components/Playlist";
+import { History } from "./components/History";
+
 function App() {
   return (
     <div className="App">
@@ -22,6 +24,9 @@ function App() {
         </Route>
         <Route path="/playlists/:playlistName">
           <Playlist />
+        </Route>
+        <Route path="/history">
+          <History />
         </Route>
         <Route path="*">
           <NoMatch />

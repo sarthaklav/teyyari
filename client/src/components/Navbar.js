@@ -11,8 +11,11 @@ export function Navbar() {
           <li>
             <NavLink to="/videos">Videos</NavLink>
           </li>
-          <li>
+          {/* <li>
             <NavLink to="/playlists">Watch later </NavLink>
+          </li> */}
+          <li>
+            <NavLink to="/history">History</NavLink>
           </li>
         </ul>
         <form>

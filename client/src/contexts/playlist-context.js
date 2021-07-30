@@ -10,6 +10,9 @@ const watchLater = [
     video: "https://www.youtube.com/watch?v=CyHIuVRLDPY&ab_channel=MrTechpedia",
   },
 ];
+
+const history = [];
+
 function reducerFunc(state, action) {
   switch (action.type) {
     case "ADD_TO_PLAYLIST":
@@ -20,6 +23,8 @@ function reducerFunc(state, action) {
     case "CREATE_PLAYLIST":
       return { ...state, [action.payload]: [] };
 
+    case "ADD_TO_HISTORY":
+      return { ...state, history: [...state.history, action.payload] };
     default:
       return state;
   }
@@ -28,6 +33,7 @@ function reducerFunc(state, action) {
 export function PlaylistProvider({ children }) {
   const [playlistState, playlistDispatch] = useReducer(reducerFunc, {
     watchLater,
+    history,
   });
   console.log(`from line 28 playlist-context.js`);
   console.log(playlistState);
