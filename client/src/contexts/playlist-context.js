@@ -34,6 +34,16 @@ export function PlaylistProvider({ children }) {
   const [playlistState, playlistDispatch] = useReducer(reducerFunc, {
     watchLater,
     history,
+
+    // playlists: [
+    //   {
+    //     playlistId: "124",
+    //     playlistVideos: [{}, {}, {}],
+    //     type: private / public,
+    //   },
+    // ],
+    //better way to do that
+    // playlist :{ name :"Play list name", videosInPlaylist:[],   }  wrong
   });
   console.log(`from line 28 playlist-context.js`);
   console.log(playlistState);

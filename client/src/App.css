@@ -1,3 +1,57 @@
 .App {
+  /* text-align: center; */
+}
+
+
+
+/* login style below */
+.container-signup,
+.container-login {
+  margin: 0 auto auto auto;
+}
+
+.container-signup-form,
+.container-login-form {
+  margin: auto;
+  width: 30%;
+  min-width: 200px;
+}
+
+.signup-heading,
+.login-heading {
   text-align: center;
+}
+
+.form-signup,
+.form-login {
+  background-color: white;
+  border: none;
+}
+
+.signup-login-link {
+  display: block;
+  text-align: center;
+  margin: auto;
+}
+
+
+.form-label {
+  font-weight: bold;
+  font-size: small;
+}
+
+/* .input-text */
+
+.form-input {
+  display: block;
+  width: 100%;
+  height: 1.7rem;
+  border: 1px solid grey;
+  border-radius: .2rem;
+}
+
+.form-btn {
+  display: flex;
+  margin-top: 1rem;
+  justify-content: space-between;
 }
